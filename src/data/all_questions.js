@@ -1,4 +1,4 @@
-questions = [
+export const questions = [
     {
         "question": "What does the 'C' in the CIA triad stand for?",
         "choices": ["Control", "Cryptography", "Confidentiality", "Configuration"],
@@ -1359,4 +1359,4 @@ questions = [
         "choices": ["Data minimization", "Data localization", "Data sovereignty", "Data inventory"],
         "answer": "C"
     }
-]
+];
