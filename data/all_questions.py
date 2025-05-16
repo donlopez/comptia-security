@@ -233,8 +233,8 @@ questions = [
         "question": "During a penetration test, Patrick used a compromised system to gain access to others. What is this called?",
         "choices": ["Lateral movement", "Privilege escalation", "Footprinting", "OSINT"],
         "answer": "A"
-    }
-        {
+    },
+    {
         "question": "Which tool is most likely to detect an XSS vulnerability?",
         "choices": ["Static application test", "Web application vulnerability scanner", "Intrusion detection system", "Network vulnerability scanner"],
         "answer": "B"
@@ -333,7 +333,7 @@ questions = [
         "question": "Which method ensures that data has not been modified in transit?",
         "choices": ["Encryption", "Authentication", "Hashing", "Public key infrastructure"],
         "answer": "C"
-    }
+    },
         {
         "question": "What does SSO stand for in identity management?",
         "choices": ["Single-source origin", "Synchronized security operations", "Single sign-on", "Secure server operations"],
@@ -433,7 +433,7 @@ questions = [
         "question": "What type of control is account lockout after failed login attempts?",
         "choices": ["Technical", "Physical", "Administrative", "Organizational"],
         "answer": "A"
-    }
+    },
         {
         "question": "Mike wants to stop vehicles from traveling toward the entrance of his building. What physical security control should he implement?",
         "choices": ["An air gap", "A hot aisle", "A robotic sentry", "A bollard"],
@@ -543,7 +543,7 @@ questions = [
         "question": "Which physical control is designed to block vehicles but allow foot traffic?",
         "choices": ["Turnstile", "Badge gate", "Bollard", "Fire gate"],
         "answer": "C"
-    }
+    },
         {
         "question": "What is the primary difference between IaaS and PaaS?",
         "choices": ["PaaS provides networking, IaaS does not", "IaaS includes applications, PaaS includes OS only", "PaaS offers a development platform, IaaS offers infrastructure", "IaaS requires no management, PaaS does"],
@@ -643,7 +643,7 @@ questions = [
         "question": "What is the primary function of a bastion host in cloud security?",
         "choices": ["Load balancing", "Public access to VPNs", "Secure administrative access", "Database performance testing"],
         "answer": "C"
-    }
+    },
         {
         "question": "Which of the following provides baseline security configurations for operating systems and applications?",
         "choices": ["GPO", "Patch management", "Security templates", "Baseline hardening guides"],
@@ -743,7 +743,7 @@ questions = [
         "question": "Which component helps ensure hardware trust by securely storing cryptographic keys?",
         "choices": ["TPM", "RAID", "UEFI", "VPN"],
         "answer": "A"
-    }
+    },
         {
         "question": "A system that Tony manages sends an SNMP trap. What type of information should Tony expect to receive?",
         "choices": ["Notification of a vulnerability", "Notification of a patch being installed", "Notification of an issue", "Notification of user being created"],
@@ -843,7 +843,7 @@ questions = [
         "question": "What type of attack uses a large number of systems to flood a target with traffic?",
         "choices": ["SQL injection", "Credential stuffing", "DDoS", "Rogue AP"],
         "answer": "C"
-    }
+    },
         {
         "question": "Alyssa wants to harden iOS devices her organization uses. What set of guidelines can she follow to align to common industry security practices?",
         "choices": ["OWASP", "CIS benchmarks", "NIST 800-103", "NIST 800-111"],
@@ -953,7 +953,7 @@ questions = [
         "question": "Which control method is used to isolate insecure mobile apps in a secure workspace?",
         "choices": ["MDM", "Containerization", "App allowlisting", "SIEM"],
         "answer": "B"
-    }
+    },
         {
         "question": "What is the first step in the incident response cycle according to the Security+ exam?",
         "choices": ["Planning", "Reporting", "Monitoring", "Preparation"],
@@ -1063,7 +1063,7 @@ questions = [
         "question": "Which tool allows organizations to ingest logs and display visual dashboards with alerting?",
         "choices": ["Firewall", "SIEM", "NetFlow", "Vulnerability scanner"],
         "answer": "B"
-    }
+    },
         {
         "question": "What is the primary purpose of hashing digital evidence in forensics?",
         "choices": ["To prevent malware", "To verify data integrity", "To create a backup", "To hide sensitive files"],
@@ -1293,7 +1293,7 @@ questions = [
         "question": "Which disaster recovery term refers to the point in time to which data must be restored?",
         "choices": ["MTTR", "RPO", "RTO", "MTBF"],
         "answer": "B"
-    }
+    },
         {
         "question": "Which of the following best defines business continuity?",
         "choices": ["Ensuring long-term market share", "Restoring IT systems quickly", "Maintaining operations through disruption", "Protecting data at rest"],
