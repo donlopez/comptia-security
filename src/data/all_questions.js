@@ -1,4 +1,6 @@
 export const questions = [
+
+    //Chapter 1: Today's Security Professional
     {
       question: "Matt is updating the organization's threat assessment process. What category of control is Matt implementing?",
       choices: ["Operational", "Technical", "Corrective", "Managerial"],
@@ -18,10 +20,11 @@ export const questions = [
       explanation: "The defacement of a website alters content without authorization and is, therefore, a violation of the integrity objective. The attackers may also have breached the confidentiality or availability of the website, but the scenario does not provide us with enough information to draw those conclusions."
     },
     {
-      question: "Gwen is exploring a customer transaction reporting system and discovers the table shown here. What type of data minimization has most likely been used on this table?",
-      choices: ["Destruction", "Masking", "Tokenization", "Hashing"],
-      answer: "B",
-      explanation: "In this case, the first 12 digits of the credit card have been removed and replaced with asterisks. This is an example of data masking."
+        question: "Gwen is exploring a customer transaction reporting system and discovers the table shown here. What type of data minimization has most likely been used on this table?",
+        image: "/images/credit-card-mask.png",
+        choices: ["Destruction", "Masking", "Tokenization", "Hashing"],
+        answer: "B",
+        explanation: "In this case, the first 12 digits of the credit card have been removed and replaced with asterisks. This is an example of data masking."
     },
     {
       question: "Tonya is concerned about the risk that an attacker will attempt to gain access to her organization's database server. She is searching for a control that would discourage the attacker from attempting to gain access. What type of security control is she seeking to implement?",
@@ -124,6 +127,8 @@ export const questions = [
       answer: "A",
       explanation: "PCI DSS compensating controls must be “above and beyond” other PCI DSS requirements. This specifically bans the use of a control used to meet one requirement as a compensating control for another requirement."
     },
+
+    //Chapter 2: Cybersecurity Threat Landscape
     {
         question: "Which of the following measures is not commonly used to assess threat intelligence?",
         choices: ["Timeliness", "Detail", "Accuracy", "Relevance"],
@@ -244,6 +249,8 @@ export const questions = [
         answer: "C",
         explanation: "Renee was not authorized to perform this security testing, so her work does not fit into the category of white-hat hacking, or authorized hacking. However, she also does not have malicious intent, so her work cannot be categorized as an unauthorized, or black-hat attack. Instead, it fits somewhere in between the two extremes and would best be described as semi-authorized, or gray-hat hacking."
       },
+
+      //Chapter 3: Malicious Code
       {
         question: "Ryan wants to prevent logic bombs created by insider threats from impacting his organization. What technique will most effectively limit the likelihood of logic bombs being put in place?",
         choices: ["Deploying antivirus software", "Using a code review process", "Deploying endpoint detection and response (EDR) software", "Disabling autorun for USB drives"],
@@ -363,7 +370,9 @@ export const questions = [
         choices: ["A virus", "A worm", "A trojan", "A spyware tool"],
         answer: "A",
         explanation: "Randy knows that viruses spread through user interaction with files on thumb drives. A worm would spread itself, a Trojan would look like a useful or desirable file, and there is no indication of spyware in the question."
-      },    
+      },  
+      
+      //Chapter 4: Social Engineering and Password Attacks
       {
         question: "Joseph receives an email notifying him that he needs to change his password due to a recent account issue. He notices that the email links him to a website using the domain amaz0n.com. What type of attack should he describe this as?",
         choices: ["Typosquatting", "Phishing", "Smishing", "A watering hole attack"],
@@ -489,6 +498,8 @@ export const questions = [
         answer: "C",
         explanation: "Disinformation campaigns are used to shift public opinion or to accomplish other goals. They are not limited to nation-state actors but are an increasingly heavily used social engineering tactic at a broad scale."
       },
+
+      //Chapter 5: Security Assessment and Testing
       {
         question: "Which one of the following security assessment techniques assumes that an organization has already been compromised and searches for evidence of that compromise?",
         choices: ["Vulnerability scanning", "Penetration testing", "Threat hunting", "War driving"],
@@ -532,10 +543,11 @@ export const questions = [
         explanation: "Metasploit is an exploitation framework used to execute and attack and would be better suited for the Attacking and Exploiting phase of a penetration test. The other tools are used in reconnaissance."
       },
       {
-        question: "During a vulnerability scan, Brian discovered that a system on his network contained this vulnerability: What security control, if deployed, would likely have addressed this issue?",
+        question: "During a vulnerability scan, Brian discovered that a system on his network contained this vulnerability:\n\n![Vulnerability Scan](\/images\/ms17-010-vulnerability.png)\n\nWhat security control, if deployed, would likely have addressed this issue?",
+        image: "/images/ms17-010-vulnerability.png",
         choices: ["Patch management", "File integrity monitoring", "Intrusion detection", "Threat hunting"],
         answer: "A",
-        explanation: "This vulnerability is corrected by a patch that was released by Microsoft in 2017. A strong patch management program would have identified and remediated the missing patch."
+        explanation: "This vulnerability is corrected by a patch that was released by Microsoft in 2017. A strong patch management program would have identified and remediated the missing patch.",
       },
       {
         question: "Which one of the following tools is most likely to detect an XSS vulnerability?",
@@ -609,6 +621,8 @@ export const questions = [
         answer: "C",
         explanation: "The privileges required (PR) metric indicates the type of system access that an attacker must have to execute the attack."
       },
+
+      //Chapter 6: Application Security
       {
         question: "Adam is conducting software testing by reviewing the source code of the application. What type of code testing is Adam conducting?",
         choices: ["Mutation testing", "Static code analysis", "Dynamic code analysis", "Fuzzing"],
@@ -619,116 +633,118 @@ export const questions = [
         question: "Charles is worried about users conducting SQL injection attacks. Which of the following solutions will best address his concerns?",
         choices: ["Using secure session management", "Enabling logging on the database", "Performing user input validation", "Implementing TLS"],
         answer: "C",
-        explanation: "Charles should perform user input validation to strip out any SQL code or other unwanted input. Input validation helps prevent SQL injection attacks."
+        explanation: "Charles should perform user input validation to strip out any SQL code or other unwanted input. Secure session management can help prevent session hijacking, logging may provide useful information for incident investigation, and implementing TLS can help protect network traffic, but only input validation helps with the issue described."
       },
       {
         question: "Precompiled SQL statements that only require variables to be input are an example of what type of application security control?",
         choices: ["Parameterized queries", "Encoding data", "Input validation", "Appropriate access controls"],
         answer: "A",
-        explanation: "A parameterized query uses a prebuilt SQL statement to prevent SQL-based attacks. Variables from the application are fed to the query, rather than building a custom query dynamically."
+        explanation: "A parameterized query (sometimes called a prepared statement) uses a prebuilt SQL statement to prevent SQL-based attacks. Variables from the application are fed to the query, rather than building a custom query when the application needs data. Encoding data helps to prevent cross-site scripting attacks, as does input validation. Appropriate access controls can prevent access to data that the account or application should not have access to, but they don't use precompiled SQL statements. Stored procedures are an example of a parameterized query implementation."
       },
       {
         question: "During a web application test, Ben discovers that the application shows SQL code as part of an error provided to application users. What should he note in his report?",
         choices: ["Improper error handling", "Code exposure", "SQL injection", "A default configuration issue"],
         answer: "A",
-        explanation: "Improper error handling often exposes data to users and attackers that should not be exposed, like SQL statements. This can aid further attacks."
+        explanation: "Improper error handling often exposes data to users and possibly attackers that should not be exposed. In this case, knowing what SQL code is used inside the application can provide an attacker with details they can use to conduct further attacks. Code exposure is not one of the vulnerabilities we discuss in this book, and SQL code being exposed does not necessarily mean that SQL injection is possible. While this could be caused by a default configuration issue, there is nothing in the question to point to that problem."
       },
       {
         question: "The application that Scott is writing has a flaw that occurs when two operations are attempted at the same time, resulting in unexpected results when the two actions do not occur in the expected order. What type of flaw does the application have?",
         choices: ["Dereferencing", "A race condition", "An insecure function", "Improper error handling"],
         answer: "B",
-        explanation: "The application has a race condition, which occurs when multiple operations cause undesirable results due to their order of completion."
+        explanation: "The application has a race condition, which occurs when multiple operations cause undesirable results due to their order of completion. De-referencing accesses or uses a memory pointer, an insecure function would have security issues in the function itself, and improper error handling would involve an error and how it was displayed or what data it provided."
       },
       {
         question: "Every time Susan checks code into her organization's code repository, it is tested and validated, and then if accepted, it is immediately put into production. What is the term for this?",
         choices: ["Continuous integration", "Continuous delivery", "A security nightmare", "Agile development"],
         answer: "B",
-        explanation: "This is continuous delivery, where code is both continually integrated and deployed into production environments after validation."
+        explanation: "Although this example includes continuous integration, the key thing to notice is that the code is then deployed into production. This means that Susan is operating in a continuous deployment environment, where code is both continually integrated and deployed. Agile is a development methodology and often uses CI/CD, but we cannot determine if Susan is using Agile."
       },
       {
         question: "Tim is working on a change to a web application used by his organization to fix a known bug. What environment should he be working in?",
         choices: ["Test", "Development", "Staging", "Production"],
         answer: "B",
-        explanation: "Developers should work in the development environment when writing or modifying code. Test and staging come after development, and production is the live system."
+        explanation: "Developers working on active changes to code should always work in the development environment. The test environment is where the software or systems can be tested without impacting the production environment. The staging environment is a transition environment for code that has successfully cleared testing and is waiting to be deployed into production. The production environment is the live system. Software, patches, and other changes that have been tested and approved move to production."
       },
       {
         question: "Ricky is concerned that developers in his organization make use of third-party code in their applications, which may introduce unknown vulnerabilities. He is concerned about the risk of the organization running code that it is not aware it is using. Which one of the following activities would best address this risk?",
         choices: ["Web application firewalls", "Package monitoring", "Static analysis", "Dynamic analysis"],
         answer: "B",
-        explanation: "Package monitoring inventories and tracks third-party libraries used in applications, helping detect unexpected or vulnerable packages."
+        explanation: "All of the activities listed here may reduce the risk of the vulnerabilities created by the code. However, Ricky is specifically concerned about the fact that the organization may not be aware of all of the code that it is running. Package monitoring would inventory and monitor these third-party libraries, so that is the best answer here."
       },
       {
         question: "Which one of the following is not an advantage of automation in cybersecurity operations?",
         choices: ["Enforcing baselines", "Technical debt", "Employee retention", "Standardizing infrastructure configurations"],
         answer: "B",
-        explanation: "Technical debt is a drawback of automation, not an advantage. The others are benefits of automation in security operations."
+        explanation: "The main benefits of automation are efficiency and time savings, enforcing baselines, standardizing infrastructure configurations, scaling in a secure manner, retaining employees, reducing reaction time, and serving as a workforce multiplier. Technical debt is one of the potential drawbacks of automation."
       },
       {
         question: "Chris is creating a script that will automatically screen any user requests and flag those that exceed normal thresholds for manual review. What term best describes this automation use case?",
         choices: ["User provisioning", "Guard rails", "Ticket creation", "Escalation"],
         answer: "B",
-        explanation: "This is an example of a guard rails automation use case—scripts that detect abnormal behavior and prevent undesired actions."
+        explanation: "This is an example of the guard rails use case for automation. Cybersecurity professionals can use scripting to automatically review user actions and block any that are outside of normal parameters."
       },
       {
         question: "Which one of the following is not a common drawback of automating cybersecurity operations?",
         choices: ["Reducing employee satisfaction", "Creating single points of failure", "Costs", "Complexity"],
         answer: "A",
-        explanation: "Automation typically improves employee retention. Drawbacks include cost, complexity, technical debt, and introducing single points of failure."
+        explanation: "Automation normally increases employee retention. The common drawbacks to automation include complexity, cost, creating single points of failure, incurring technical debt, and creating challenges to ongoing supportability."
       },
       {
         question: "Frank is investigating a security incident where the attacker entered a very long string into an input field, which was followed by a system command. What type of attack likely took place?",
         choices: ["Cross-site request forgery", "Server-side request forgery", "Command injection", "Buffer overflow"],
         answer: "D",
-        explanation: "Buffer overflow attacks occur when an attacker writes more data into a buffer than it can hold, potentially executing malicious code."
+        explanation: "Buffer overflow attacks occur when an attacker manipulates a program into placing more data into an area of memory than is allocated for that program's use. The goal is to overwrite other information in memory with instructions that may be executed by a different process running on the system."
       },
       {
         question: "What type of attack places an attacker in the position to eavesdrop on communications between a user and a web server?",
         choices: ["On-path attack", "Session hijacking", "Buffer overflow", "Meet-in-the-middle"],
         answer: "A",
-        explanation: "In an on-path (man-in-the-middle) attack, the attacker intercepts communications between two parties."
+        explanation: "In an on-path attack, the attacker fools the user into thinking that the attacker is actually the target website and presenting a fake authentication form. They may then authenticate to the website on the user's behalf and obtain the cookie. This is slightly different from a session hijacking attack, where the attacker steals the cookie associated with an active session."
       },
       {
         question: "Tom is a software developer who creates code for sale to the public. He would like to assure his users that the code they receive actually came from him. What technique can he use to best provide this assurance?",
         choices: ["Code signing", "Code endorsement", "Code encryption", "Code obfuscation"],
         answer: "A",
-        explanation: "Code signing verifies the authenticity and integrity of code by using digital signatures. It assures users the code is from the stated source."
+        explanation: "Code signing provides developers with a way to confirm the authenticity of their code to end users. Developers use a cryptographic function to digitally sign their code with their own private key, and then browsers can use the developer's public key to verify that signature and ensure that the code is legitimate and was not modified by unauthorized individuals."
       },
       {
         question: "Chris is reviewing evidence of a cross-site scripting attack where the attacker embedded JavaScript in a URL that a user clicked. The web page then sent the JavaScript to the user in the displayed page. What term best describes this attack?",
         choices: ["Reflected XSS", "Stored XSS", "Persistent XSS", "DOM-based XSS"],
         answer: "A",
-        explanation: "This is a reflected XSS attack, where malicious code is sent as part of the request and reflected back in the response."
+        explanation: "This is an example of a reflected attack because the script code is contained within the URL. A persistent or stored attack places the content on a web page or other location where a victim may later access it. DOM-based XSS attacks hide the attack code within the Document Object Model."
       },
       {
         question: "Joe checks his web server logs and sees that someone sent the following query string to an application running on the server: www.mycompany.com/servicestatus.php?serviceID=892&serviceID=892’%20;DROP%20TABLE%20Services;-- What type of attack was most likely attempted?",
         choices: ["Cross-site scripting", "Session hijacking", "Parameter pollution", "On-path"],
         answer: "C",
-        explanation: "This is a parameter pollution attack, where multiple values for the same parameter are submitted to bypass filters or trigger unexpected behavior."
+        explanation: "This query string is indicative of a parameter pollution attack. In this case, it appears that the attacker was waging a SQL injection attack and tried to use parameter pollution to slip the attack past content filtering technology. The two instances of the serviceID parameter in the query string indicate a parameter pollution attempt."
       },
       {
         question: "Upon further inspection, Joe finds a series of thousands of requests to the same URL coming from a single IP address. What type of vulnerability was the attacker likely trying to exploit?",
         choices: ["Insecure direct object reference", "File upload", "Unvalidated redirect", "Session hijacking"],
         answer: "A",
-        explanation: "The incrementing values in the serviceID suggest an attempt to exploit insecure direct object reference vulnerabilities."
+        explanation: "The series of thousands of requests incrementing a variable indicate that the attacker was most likely attempting to exploit an insecure direct object reference vulnerability."
       },
       {
         question: "Joe's adventures in web server log analysis are not yet complete. As he continues to review the logs, he finds the request: www.mycompany.com/../../../etc/passwd What type of attack was most likely attempted?",
         choices: ["SQL injection", "Session hijacking", "Directory traversal", "File upload"],
         answer: "C",
-        explanation: "This is a directory traversal attack, attempting to access files outside the web root, such as /etc/passwd on Unix systems."
+        explanation: "In this case, the .. operators are the telltale giveaway that the attacker was attempting to conduct a directory traversal attack. This particular attack sought to break out of the web server's root directory and access the /etc/passwd file on the server."
       },
       {
         question: "Wendy is a penetration tester who wishes to engage in a session hijacking attack. What information is crucial for Wendy to obtain if her attack will be successful?",
         choices: ["Session ticket", "Session cookie", "Username", "User password"],
         answer: "B",
-        explanation: "Session hijacking requires capturing the session cookie, which can then be used to impersonate the legitimate user."
+        explanation: "Websites use HTTP cookies to maintain sessions over time. If Wendy is able to obtain a copy of the user's session cookie, she can use that cookie to impersonate the user's browser and hijack the authenticated session."
       },
       {
         question: "Joe is examining the logs for his web server and discovers that a user sent input to a web application that contained the string WAITFOR. What type of attack was the user likely attempting?",
         choices: ["Timing-based SQL injection", "HTML injection", "Cross-site scripting", "Content-based SQL injection"],
         answer: "A",
-        explanation: "The use of WAITFOR is typical of a timing-based SQL injection attack, used to infer database behavior based on delayed responses."
+        explanation: "The use of the SQL WAITFOR command is a signature characteristic of a timing-based SQL injection attack."
       },
+
+      //Chapter 7: Cryptography and the PKI
       {
         question: "Mike is sending David an encrypted message using a symmetric encryption algorithm. What key should he use to encrypt the message?",
         choices: ["Mike's public key", "Mike's private key", "David's public key", "Shared secret key"],
@@ -739,7 +755,7 @@ export const questions = [
         question: "Shahla recently discovered an attack where the attacker managed to force a network user to use weak encryption and was then able to decrypt that content. What term best describes this attack?",
         choices: ["Downgrade", "Collision", "Homomorphic encryption", "Birthday attack"],
         answer: "A",
-        explanation: "Downgrade attacks try to remove or lower the strength of encryption to allow the decryption of sensitive information."
+        explanation: "Downgrade attacks try to remove or lower the strength of encryption to allow the decryption of sensitive information. Birthday attacks find collisions where two different inputs produce the same hash value output, but there is no discussion of that in this scenario. Homomorphic encryption is not an attack but a technology that protects privacy by encrypting data in a way that preserves the ability to perform computation on that data."
       },
       {
         question: "Norm is using full-disk encryption technology to protect the contents of laptops against theft. What goal of cryptography is he attempting to achieve?",
@@ -854,6 +870,8 @@ export const questions = [
         answer: "A",
         explanation: "To verify the digital signature, Mike uses David's public key to decrypt the signature and validate the message hash."
       },
+
+      //Chapter 8: Identity and Access Management
       {
         question: "Angela has chosen to federate with other organizations to allow use of services that each organization provides. What role does Angela's organization play when they authenticate their users and assert that those users are valid to other members of the federation?",
         choices: ["Service provider", "Relying party", "Authentication provider", "Identity provider"],
@@ -984,136 +1002,8 @@ export const questions = [
         answer: "C",
         explanation: "Linux file systems use discretionary access control, where the owner of a file sets the access permissions."
       },
-      {
-        question: "Angela has chosen to federate with other organizations to allow use of services that each organization provides. What role does Angela's organization play when they authenticate their users and assert that those users are valid to other members of the federation?",
-        choices: ["Service provider", "Relying party", "Authentication provider", "Identity provider"],
-        answer: "D",
-        explanation: "Angela's organization is acting as an identity provider (IdP). Other members of the federation may act as a service provider or relying party when they allow her users to access their services. Authentication provider is not a named role in typical federation activities."
-      },
-      {
-        question: "Which of the following technologies is the least effective means of preventing shared accounts?",
-        choices: ["Password complexity requirements", "Requiring biometric authentication", "Requiring one-time passwords via a token", "Requiring a one-time password via an application"],
-        answer: "A",
-        explanation: "Password complexity requirements do not prevent sharing of complex passwords, making it the least effective option from the list. Biometric authentication measures will require the enrolled user to be there, although in some cases such as fingerprint systems, multiple users could each enroll a valid fingerprint for a single account. Both types of one-time passwords could be shared but make it harder and less convenient to share accounts."
-      },
-      {
-        question: "What major difference is likely to exist between on-premises identity services and those used in a cloud-hosted environment?",
-        choices: [
-          "Account policy control will be set to the cloud provider's standards.",
-          "The cloud service will provide account and identity management services.",
-          "Multifactor authentication will not be supported by the cloud vendor.",
-          "None of the above."
-        ],
-        answer: "B",
-        explanation: "Most cloud services provide identity and authorization tools for their services. Most, although not all, allow customers to set some or even many of the account policies they will use, and most major vendors support some form of multifactor capability."
-      },
-      {
-        question: "Amitoj wants to ensure that her organization's password policy does not allow users to reset their password multiple times until they can reuse their current password. What setting is used to prevent this?",
-        choices: ["Complexity", "Length", "Expiration", "Age"],
-        answer: "D",
-        explanation: "Password age is set to prevent users from resetting their password enough times to bypass reuse settings. Complexity, length, and expiration do not influence this."
-      },
-      {
-        question: "Which type of multifactor authentication is considered the least secure?",
-        choices: ["HOTP", "SMS", "TOTP", "Biometric"],
-        answer: "B",
-        explanation: "SMS messages are not secure and could be accessed by cloning a SIM card or redirecting VoIP traffic, among other possible threat models. Both HOTP and TOTP tokens and applications as well as biometric factors are generally considered more secure than an SMS-based factor."
-      },
-      {
-        question: "Geeta has been issued a USB security key as part of her organization's multifactor implementation. What type of implementation is this?",
-        choices: ["A hard token", "A biometric token", "A soft token", "An attestation token"],
-        answer: "A",
-        explanation: "A USB security key is an example of a hard, or physical, token. An application is an example of a soft token. A biometric factor might be a fingerprint or faceprint. Attestation is a formal verification that something is true. Attestation tokens were made up for this question."
-      },
-      {
-        question: "Michelle enables the Windows picture password feature to control logins for her laptop. Which type of attribute will it provide?",
-        choices: ["Somewhere you are", "Something you know", "Something you are", "Someone you know"],
-        answer: "B",
-        explanation: "Picture password asks users to click on specific, self-defined parts of a picture. This means that clicking on those points is something you know. Something you are involves biometric traits, and somewhere you are relies on geographic locations."
-      },
-      {
-        question: "What purpose would Linux file permissions set to rw-r--r-- serve?",
-        choices: [
-          "To allow the owner to read and write the file, and for the owner's group and others to be able to read it",
-          "To allow all users to read and write the file, and for the group and owner to be able to read it",
-          "To allow system administrators to read and write the file, and for users and all others to be able to read it",
-          "To prevent reading and writing for all users, and to prevent reading by groups and a specific user"
-        ],
-        answer: "A",
-        explanation: "Linux file permissions are read left to right, with the first three characters indicating read, write, and execute permissions (rwx) for the owner of the file, the second three apply to the group, and the last three to all other users. Any indicated with a – are not allowed for that set."
-      },
-      {
-        question: "Theresa wants to implement an access control scheme that sets permissions based on what the individual's job requires. Which of the following schemes is most suited to this type of implementation?",
-        choices: ["ABAC", "DAC", "RBAC", "MAC"],
-        answer: "C",
-        explanation: "Role-based access control (RBAC) sets permissions based on an individual's role, which is typically associated with their job. Attribute-based access control (ABAC) is typically matched to other attributes than the job role. Discretionary access control (DAC) and mandatory access control (MAC) are commonly implemented at the operating system level."
-      },
-      {
-        question: "Which of the following biometric technologies is most broadly deployed due to its ease of use and acceptance from end users?",
-        choices: ["Voice print recognition", "Gait recognition", "Retina scanners", "Fingerprint scanner"],
-        answer: "D",
-        explanation: "Fingerprint scanners are found on many mobile devices and laptops, making them one of the most broadly deployed biometric technologies. Facial recognition is also broadly deployed, but it is not mentioned in this question or offered as an option."
-      },
-      {
-        question: "Adam want to increase his organization's passwords resistance to attacks in the event that the password hash database is stolen by attackers. Which of the following password security settings has the largest impact on password cracking if his organization's current passwords are 8 characters long?",
-        choices: ["Password complexity", "Password length", "Password reuse limitations", "Preventing the use of common words in passwords"],
-        answer: "B",
-        explanation: "Password length has the largest impact on preventing password cracking. When paired with a strong password hash algorithm and proper use of technology like salting, long passwords are much harder to crack. Complexity is the next most important option, as preventing simple repeated characters and similar problematic passwords helps reduce the probability of easily cracked passwords being used. Reuse limitations and preventing common words are less useful."
-      },
-      {
-        question: "A PIN is an example of what type of factor?",
-        choices: ["Something you know", "Something you are", "Something you have", "Something you set"],
-        answer: "A",
-        explanation: "PINs and passwords are both examples of something you know. Something you set is not a type of factor. Biometric factors are an example of something you are, and a physical USB token would be a common example of something you have."
-      },
-      {
-        question: "Marie is implementing a PAM solution and wants to ensure that root passwords are available in the event of an outage. Which PAM-related tool is most likely to be useful in this situation?",
-        choices: ["Ephemeral accounts", "Just-in-time permissions", "Password vaulting", "Token-based authentication"],
-        answer: "C",
-        explanation: "Password vaulting, which stores passwords for use with proper authentication and rights, is the most appropriate solution for Marie's needs. Ephemeral accounts and just-in-time permissions are typically used under normal circumstances to provide least privilege access as needed. Token-based authentication is not specifically a PAM solution."
-      },
-      {
-        question: "Jill sets her files on a Windows file share to allow Fred to access the files. What type of access control system is she using?",
-        choices: ["Mandatory access control", "Rule-based access control", "Attribute-based access control", "Discretionary access control"],
-        answer: "D",
-        explanation: "Jill is able to make decisions about the rights she grants on her files, meaning this is a discretionary access control system. A mandatory access control system relies on labels to set access control rules. Rule-based access control systems rely on rules to define access, and attribute-based access control systems grant access based on attributes like job roles or locations."
-      },
-      {
-        question: "Lisa sets up an account on a website that allows her to log in with Google. When she logs in, Google provides an access token to the website that confirms that she is who she says she is but doesn't provide the site with her password. Which of the following technologies has she used?",
-        choices: ["LDAP", "OAuth", "MITRE", "RADIUS"],
-        answer: "B",
-        explanation: "OAuth is an authentication protocol that allows services to receive authentication tokens from an identity provider without needing the user's password. LDAP is a directory service and is often used as part of SSO processes. MITRE is a nonprofit organization, and RADIUS is an authentication technology."
-      },
-      {
-        question: "Kyle has been asked to provide his government-issued ID as part of the creation of his user account. What process should he assume it is being used for?",
-        choices: ["Biometric enrollment", "Just-in-time permission creation", "Identity proofing", "Federation"],
-        answer: "C",
-        explanation: "Kyle can assume that his government-issued ID is being used as part of an identity proofing process to validate that he is who he claims to be. Biometric enrollment typically requires interaction with an enrollment process to scan or capture biometric information. Just-in-time permission creation is done when access is requested and does not require government ID, and federation connects identity providers with service providers, which is not described here."
-      },
-      {
-        question: "What key concept below best describes only providing the permissions necessary to perform a role?",
-        choices: ["Least privilege", "Best practice", "Ephemeral accounts", "Mandatory access control"],
-        answer: "A",
-        explanation: "The principle of least privilege means that users should only be given the permissions necessary to perform their role. Best practice is a general term describing commonly recommended and accepted industry practices. Temporal accounts are ephemeral, or short-lived accounts. Mandatory access control is an access control scheme."
-      },
-      {
-        question: "Nina has recently left her organization. What should the organization do with her account?",
-        choices: ["Transfer it to her replacement.", "Reprovision it for another user.", "Deprovision her account.", "Change the password and preserve the account."],
-        answer: "C",
-        explanation: "Without other factors that would require the account to be retained, deprovisioning accounts that belonged to users who have left the organization is a best practice. Transferring accounts or reprovisioning them may expose data to new users or provide them with rights that they should not have."
-      },
-      {
-        question: "A person's name, age, location, or job title are all examples of what?",
-        choices: ["Biometric factors", "Identity factors", "Attributes", "Account permissions"],
-        answer: "C",
-        explanation: "A person's name, age, location, job title, and even things like their height or their hair color are all attributes that may be associated with a person's identity. None of these describe biometric factors used for authentication, and identity factors are something you are, something you have, or somewhere you are. Account permissions determine what you can do, not attributes like these."
-      },
-      {
-        question: "What type of access control scheme best describes the Linux filesystem?",
-        choices: ["MAC", "RBAC", "DAC", "ABAC"],
-        answer: "C",
-        explanation: "Linux users can change who can read, write, or execute files and directories they own, which is discretionary access control (DAC). Mandatory access control (MAC) would enforce settings set by the systems administrator without users having the rights to make their own decisions. While role-based access control is involved, DAC best describes the access control scheme. ABAC is not a default method for setting rights for the Linux filesystem."
-      },
+      
+      //Chapter 9: Resilience and Physical Security
       {
         question: "Naomi wants to handle increasing load by scaling cloud-hosted resources as needed while having the change remain transparent to users. She also wants to allow for upgrades and system replacements transparently. What solution should she select?",
         choices: ["Load balancing", "Clustering", "Geographic diversity", "A hot site"],
@@ -2385,5 +2275,5 @@ export const questions = [
     answer: "D",
     explanation: "The residual risk is the risk that remains after an organization implements controls designed to mitigate, avoid, and/or transfer the inherent risk.",
   },   
-   
+
   ];  
