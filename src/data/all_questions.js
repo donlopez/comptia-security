@@ -1867,4 +1867,523 @@ export const questions = [
     explanation: "Vulnerability scans are the best way to find new services that are offered by systems. In fact, many vulnerability scanners will flag new services when they appear, allowing administrators to quickly notice unexpected new services. Registry information is not regularly dumped or collected in most organizations. Firewall logs and flow logs could show information about the services being used by systems whose traffic passes through them, but this is a less useful and accurate way of identifying new services and would work only if those services were also being used."
   },
   
+  // Chapter 15: Digital Forensics
+{
+    question: "Felix wants to make an exact copy of a drive using a Linux command-line tool as part of a forensic acquisition process. What command should he use?",
+    choices: ["df", "cp", "dd", "ln"],
+    answer: "C",
+    explanation: "dd is a copying and conversion command for Linux and can be used to create a forensic image that can be validated using an MD5sum or SHA1 hash. The other commands are df for disk usage, cp for copying files, and ln to link files."
+  },
+  {
+    question: "Greg is preparing a forensic report and needs to describe the tools that were used. What should he report about the tools in addition to their names?",
+    choices: ["The type of system the tools were installed or run on", "The training level or certifications of the team that uses the tools", "Any known limitations or issues with the tools", "The patch level or installed version of the tools"],
+    answer: "C",
+    explanation: "If there are known limitations or issues with the tools used, this should be included in the report. The type of system the tool was installed on may influence performance but should not influence the report or output. Training and certification may be listed as part of a team description but are not required as part of tool description. Finally, patch levels or installed versions are not critical unless there are known issues that would have been described as such."
+  },
+  {
+    question: "Gabby is preparing chain-of-custody documentation and identifies a gap in hand-off documentation for an original source forensic drive. What issue should she expect to encounter due to this gap?",
+    choices: ["The evidence may not be admissible in court.", "The forensic activities may need to be repeated.", "The staff involved may have to re-create the missed log.", "The chain of custody may need to be edited to note the problem."],
+    answer: "A",
+    explanation: "If forensic evidence was not properly handled, it may not be admissible in court. Repeating forensic activities won't reverse mishandling, staff can't go back and re-create logs, and noting the issue will not resolve it."
+  },
+  {
+    question: "Mike's organization has recently moved to a SaaS cloud service and needs to collect forensic data from the cloud service. What process can Mike use to gather the information he needs?",
+    choices: ["Install forensic imaging software on the cloud service's servers.", "Identify the log information available and request any other desired information from the cloud service provider.", "Engage law enforcement to acquire the forensic data.", "Request the forensic information from third-party auditors."],
+    answer: "B",
+    explanation: "Mike's best option is to identify the log information available from the provider and to request any additional information knowing that he may not receive more detail unless there is contractual language that specifies it. SaaS vendors typically won't allow installation of forensic tools, law enforcement does not perform forensic acquisition for third parties upon request, and auditors don't provide forensic data acquisition either."
+  },
+  {
+    question: "Charles wants to obtain a forensic copy of a running virtual machine. What technique should he use to capture the image?",
+    choices: ["Run dd from within the running machine.", "Use FTK Imager from the virtual machine host.", "Use the VM host to create a snapshot.", "Use WinHex to create a copy from within the running machine."],
+    answer: "C",
+    explanation: "Creating a snapshot will provide a complete copy of the system, including memory state that can then be analyzed for forensic purposes. Copying a running system from a program running within that system can be problematic, since the system itself will change while it is trying to copy itself. FTK Imager can copy drives and files, but it would not handle a running virtual machine."
+  },
+  {
+    question: "Melissa wants to capture network traffic for forensic purposes. What tool should she use to capture it?",
+    choices: ["A forensic suite", "Wireshark", "dd", "WinHex"],
+    answer: "B",
+    explanation: "Even though Wireshark is not a dedicated network forensic tool, since network traffic is ephemeral, capturing it with a packet sniffer like Wireshark is Melissa's best option. Forensic suites are useful for analyzing captured images, not capturing network traffic, and dd and WinHex are both useful for packet capture, but not for network traffic analysis."
+  },
+  {
+    question: "Frank is concerned about the admissibility of his forensic data. Which of the following is not an element he should be concerned about?",
+    choices: ["Whether the forensic source data has remained unaltered", "Whether the practices and procedures would survive review by experts", "Whether the evidence is relevant to the case", "Whether the forensic information includes a time stamp"],
+    answer: "D",
+    explanation: "Forensic information does not have to include a time stamp to be admissible, but time stamps can help build a case that shows when events occurred. Files without a time stamp may still show other information that is useful to the case or may have other artifacts associated with them that can provide context about the time and date."
+  },
+  {
+    question: "What is the document that tracks the custody or control of a piece of evidence called?",
+    choices: ["Evidence log", "Audit log", "Event report", "Chain of custody"],
+    answer: "D",
+    explanation: "Chain-of-custody documentation tracks evidence throughout its life cycle, with information about who has custody or control and when transfers happened, and continues until the evidence is removed from the legal process and disposed of. The other terms are not used for this practice."
+  },
+  {
+    question: "Isaac is performing a forensic analysis on two systems that were compromised in the same event in the same facility. As he performs his analysis, he notices that the event appears to have happened almost exactly one hour earlier on one system than the other. What is the most likely issue he has encountered?",
+    choices: ["The attacker took an hour to get to the second system.", "One system is set to an incorrect time zone.", "The attacker changed the system clock to throw off forensic practitioners.", "The forensic tool is reading the time stamps incorrectly."],
+    answer: "B",
+    explanation: "The most common cause of an hour of difference between two systems in an environment is an incorrectly set time zone. Isaac should check the time zone settings, and then correct his findings based on the time zones set on the systems if necessary."
+  },
+  {
+    question: "What legal concept determines the law enforcement agency or agencies that will be involved in a case based on location?",
+    choices: ["Nexus", "Nonrepudiation", "Jurisdiction", "Admissibility"],
+    answer: "C",
+    explanation: "Jurisdiction is the legal authority over an area or individuals based on laws that create the jurisdiction. Nexus defines whether a relationship or connection exists, such as a local branch or business location. Non-repudiation ensures that evidence or materials can be connected to their originator. Admissibility determines whether evidence can be used in court."
+  },
+  {
+    question: "Michael wants to acquire the firmware from a running device for analysis. What method is most likely to succeed?",
+    choices: ["Use forensic memory acquisition techniques.", "Use disk forensic acquisition techniques.", "Remove the firmware chip from the system.", "Shut down the system and boot to the firmware to copy it to a removable device."],
+    answer: "A",
+    explanation: "Firmware can be challenging to access, but both memory forensic techniques and direct hardware interface access are viable means in some cases. Firmware is not typically stored on the disk and instead is stored in a BIOS or UEFI chip. Removing the chip from the system will leave it unable to run and thus this is not a preferred method. Also, many chips are not removable. Shutting down the device and booting it to the firmware does not provide a means of copying the firmware for most devices. Although the firmware is likely to allow updates, most do not allow downloads or copying."
+  },
+  {
+    question: "Charles needs to know about actions an individual performed on a PC. What is the best starting point to help him identify those actions?",
+    choices: ["Review the system log.", "Review the event log.", "Interview the individual.", "Analyze the system's keystroke log."],
+    answer: "C",
+    explanation: "Although it may be tempting to use a technical answer, interviewing the individual involved is the best starting point when a person performed actions that need to be reviewed. Charles can interview the staff member, and then move on to technical means to validate their responses. System and event logs may have some clues to what occurred, but normal systems do not maintain a keystroke log. In fact, the closest normal element is the command log used by both Windows and Linux to allow command-line input to be recalled as needed."
+  },
+  {
+    question: "Maria has acquired a disk image from a hard drive using dd, and she wants to ensure that her process is forensically sound. What should her next step be after completing the copy?",
+    choices: ["Securely wipe the source drive.", "Compare the hashes of the source and target drive.", "Securely wipe the target drive.", "Update her chain-of-custody document."],
+    answer: "B",
+    explanation: "Once a copy is made, hashes for the original and target drive should be compared to ensure that the copy was successful. After that, the chain-of-custody document can be updated to note that a copy was made and will be tracked as it is analyzed while the original is preserved. Wiping either drive after a copy is not part of the process, although a target drive may be wiped after a case is complete."
+  },
+  {
+    question: "Alex has been handed a flash media device that was quick-formatted and has been asked to recover the data. What data will remain on the drive?",
+    choices: ["No data will remain on the drive.", "Files will remain but file indexes will not.", "File indexes will remain, but the files will be gone.", "Files and file indexes will remain on the drive."],
+    answer: "B",
+    explanation: "Quick-formatting a drive removes the file indexes but leaves the file content on the drive. Recovery tools look for those files on the drive and piece them back together using metadata, headers, and other clues that help to recover the files."
+  },
+  {
+    question: "Naomi is preparing to migrate her organization to a cloud service and wants to ensure that she has the appropriate contractual language in place. Which of the following is not a common item she should include?",
+    choices: ["Right-to-audit clauses", "Right to forensic examination", "Choice of jurisdiction", "Data breach notification timeframe"],
+    answer: "B",
+    explanation: "Contracts commonly include right to audit, choice of jurisdiction, and data breach notification time frame clauses, but a right to forensically examine a vendor's systems or devices is rarely included. Naomi may want to ask about their incident response process and for examples of previous breach notification and incident documentation shared with customers instead."
+  },
+  {
+    question: "Alaina wants to maintain chain-of-custody documentation and has created a form. Which of the following is not a common element on a chain-of-custody form?",
+    choices: ["Item identifier number", "Signature of the person transferring the item", "Signature of the person receiving the item", "Method of transport"],
+    answer: "D",
+    explanation: "Chain of custody tracks who has an item, how it is collected, where it is stored and how, how it is secured or protected, who collected it, and transfers, but it does not typically include how the items were transported because that is not relevant if the other data is provided."
+  },
+  {
+    question: "Henry is following the EDRM model and is preparing to review data. What two key tasks occur during this stage?",
+    choices: ["Validating that time stamps match between systems and that data is properly hashed to confirm that original data is sent", "Validating that the legal hold request is valid and that all documented items are included", "Validating that the desired data is included and that information that should not be shared is not included", "Validating that chain of custody is ensured and that malicious files are not included"],
+    answer: "C",
+    explanation: "It is important to ensure that data prepared for e-discovery only contains what it is supposed to, and that information that should not be shared is not included. Time stamps, hashing, chain of custody, and ensuring malicious files are not included are not part of the EDRM model. Validating that a legal hold is valid should happen before preservation, but validating that documented items from the hold are included if they exist should occur."
+  },
+  {
+    question: "Theresa's organization has received a legal hold notice for their files and documents. Which of the following is not an action she needs to take?",
+    choices: ["Ensure that changes to existing documents related to the case are tracked and that originals can be provided.", "Preserve all existing documents relevant to the case.", "Delete all sensitive documents related to the case.", "Prevent backups that contain files related to the case from being overwritten on their normal schedule."],
+    answer: "C",
+    explanation: "Removing information relevant to a legal hold is exactly what the hold is intended to prevent. Theresa's organization could be in serious legal trouble if they were to intentionally purge or change related information."
+  },
+  {
+    question: "Gurvinder wants to follow the order of volatility to guide his forensic data acquisition. Which of the following is the least volatile?",
+    choices: ["RAM", "Data on the hard drive", "Backups", "Remote logs"],
+    answer: "C",
+    explanation: "Backups are the least volatile of these options according to the order of volatility. Backups will be kept until they are aged out, which may be days, weeks, or even months in some cases. From most to least volatile, these are RAM, data on the hard drive, remote logs, and then backups."
+  },
+  {
+    question: "What is the key difference between hashing and checksums?",
+    choices: ["Both can validate integrity, but a hash also provides a unique digital fingerprint.", "A hash can be reversed, and a checksum cannot be.", "Checksums provide greater security than hashing.", "Checksums have fewer message collisions than a hash."],
+    answer: "A",
+    explanation: "Although both a checksum and a hash can be used to validate message integrity, a hash has fewer collisions than a checksum and will also provide a unique fingerprint for a file. Checksums are primarily used as a quick means of checking that integrity is maintained, whereas hashes are used for many other purposes such as secure password validation without retaining the original password. A checksum would not be useful for proving a forensic image was identical, but it could be used to ensure that your work had not changed the contents of the drive."
+  },
+  
+  // Chapter 16: Security Governance and Compliance
+{
+    question: "Joe is authoring a document that explains to system administrators one way in which they might comply with the organization's requirement to encrypt all laptops. What type of document is Joe writing?",
+    choices: ["Policy", "Guideline", "Procedure", "Standard"],
+    answer: "B",
+    explanation: "The key phrase in this scenario is “one way.” This indicates that compliance with the document is not mandatory, so Joe must be authoring a guideline. Policies, standards, and procedures are all mandatory."
+  },
+  {
+    question: "Which one of the following statements is not true about compensating controls under PCI DSS?",
+    choices: [
+      "Controls used to fulfill one PCI DSS requirement may be used to compensate for the absence of a control needed to meet another requirement.",
+      "Controls must meet the intent of the original requirement.",
+      "Controls must meet the rigor of the original requirement.",
+      "Compensating controls must provide a similar level of defense as the original requirement."
+    ],
+    answer: "A",
+    explanation: "PCI DSS compensating controls must be “above and beyond” other PCI DSS requirements. This specifically bans the use of a control used to meet one requirement as a compensating control for another requirement."
+  },
+  {
+    question: "What law creates privacy obligations for those who handle the personal information of European Union residents?",
+    choices: ["HIPAA", "FERPA", "GDPR", "PCI DSS"],
+    answer: "C",
+    explanation: "The General Data Protection Regulation (GDPR) implements privacy requirements for handling the personal information of EU residents. The Health Insurance Portability and Accountability Act (HIPAA) includes security and privacy rules that affect healthcare providers, health insurers, and health information clearinghouses. The Family Educational Rights and Privacy Act (FERPA) applies to educational institutions. The Payment Card Industry Data Security Standard (PCI DSS) applies to credit and debit card information."
+  },
+  {
+    question: "Which one of the following is not one of the five core security functions defined by the NIST Cybersecurity Framework?",
+    choices: ["Identify", "Contain", "Respond", "Recover"],
+    answer: "B",
+    explanation: "The five security functions described in the NIST Cybersecurity Framework are identify, protect, detect, respond, and recover."
+  },
+  {
+    question: "What ISO standard provides guidance on privacy controls?",
+    choices: ["27002", "27001", "27701", "31000"],
+    answer: "C",
+    explanation: "The International Organization for Standardization (ISO) publishes ISO 27701, covering privacy controls. ISO 27001 and 27002 cover cybersecurity, and ISO 31000 covers risk management."
+  },
+  {
+    question: "Which one of the following documents must normally be approved by the CEO or similarly high-level executive?",
+    choices: ["Standard", "Procedure", "Guideline", "Policy"],
+    answer: "D",
+    explanation: "Policies require approval from the highest level of management, usually the CEO. Other documents may often be approved by other managers, such as the CISO."
+  },
+  {
+    question: "Greg would like to create an umbrella agreement that provides the security terms and conditions for all future work that his organization does with a vendor. What type of agreement should Greg use?",
+    choices: ["BPA", "MOU", "MSA", "SLA"],
+    answer: "C",
+    explanation: "Master service agreements (MSAs) provide an umbrella contract for the work that a vendor does with an organization over an extended period of time. The MSA typically includes detailed security and privacy requirements. Each time the organization enters into a new project with the vendor, they may then create a statement of work (SOW) that contains project-specific details and references the MSA."
+  },
+  {
+    question: "What organization is known for creating independent security benchmarks covering hardware and software platforms from many different vendors?",
+    choices: ["Microsoft", "Center for Internet Security", "Cloud Security Alliance", "Cisco"],
+    answer: "B",
+    explanation: "All of these organizations produce security standards and benchmarks. However, only the Center for Internet Security (CIS) is known for producing independent benchmarks covering a wide variety of software and hardware."
+  },
+  {
+    question: "What do many organizations use to schedule and coordinate changes for information systems?",
+    choices: ["Impact analysis", "Backout plans", "Maintenance windows", "Version control"],
+    answer: "C",
+    explanation: "Many organizations use scheduled maintenance windows to coordinate changes to information systems. These windows are preplanned and announced times when all non-emergency changes will take place and often occur on evenings and weekends. A change management process ensures that personnel can perform a security impact analysis. Experts evaluate changes to identify any security impacts before personnel deploy the changes in a production environment. A backout plan allows personnel to undo the change and return the system to its previous state if necessary. Version control ensures that developers and users have access to the latest versions of software and that changes are carefully managed throughout the release process."
+  },
+  {
+    question: "Which one of the following would not normally be found in an organization's information security policy?",
+    choices: [
+      "Statement of the importance of cybersecurity",
+      "Requirement to use AES-256 encryption",
+      "Delegation of authority",
+      "Designation of responsible executive"
+    ],
+    answer: "B",
+    explanation: "Security policies do not normally contain prescriptive technical guidance, such as a requirement to use a specific encryption algorithm. This type of detail would normally be found in a security standard."
+  },
+  {
+    question: "Alice, an IT security manager at Acme Corporation, decides to conduct an exercise to test the employees' ability to recognize phishing emails. She creates fake phishing messages and sends them to the employees. When employees click on the links in the fake messages, they are redirected to a training program. What is the primary purpose of the exercise that Alice is conducting?",
+    choices: [
+      "To penalize the employees who click on the phishing links",
+      "To reward employees who identify the fake phishing messages",
+      "To test employees' ability to recognize phishing messages and help them improve",
+      "To gather data for a report on the most gullible departments"
+    ],
+    answer: "C",
+    explanation: "Alice's exercise is designed to evaluate how well employees can identify phishing messages and, if they fail to do so, redirect them to a training program that is meant to help them get better at recognizing such messages.\n\nThe exercise is meant for educational purposes and not for penalizing employees. It is intended to help them improve their skills in recognizing phishing emails.\n\nWhile rewarding employees for identifying phishing emails could be a component of a security awareness program, the exercise described is primarily educational and is focused on helping those who fail to recognize the phishing messages.\n\nWhile data might be collected for analysis and understanding areas where improvement is needed, the intention is not to label departments as gullible."
+  },
+  {
+    question: "Tonya discovers that an employee is running a side business from his office, using company technology resources. What policy would most likely contain information relevant to this situation?",
+    choices: ["NDA", "AUP", "Data ownership", "Data classification"],
+    answer: "B",
+    explanation: "An organization's acceptable use policy (AUP) should contain information on what constitutes allowable and unallowable use of company resources. This policy should contain information to help guide Tonya's next steps."
+  },
+  {
+    question: "What compliance obligation applies to merchants and service providers who work with credit card information?",
+    choices: ["FERPA", "SOX", "HIPAA", "PCI DSS"],
+    answer: "D",
+    explanation: "The Payment Card Industry Data Security Standard (PCI DSS) provides detailed rules about the storage, processing, and transmission of credit and debit card information. PCI DSS is not a law but rather a contractual obligation that applies to credit card merchants and service providers."
+  },
+  {
+    question: "Mike is an information security manager at TechRise Solutions. The company has been experiencing an increase in security incidents, and senior management is concerned about the security posture of the organization. They have asked Mike to take proactive measures to strengthen the company's security culture. What should be Mike's primary role in enhancing the security awareness and training at TechRise Solutions?",
+    choices: [
+      "To delegate all security responsibilities to the HR department",
+      "To establish, promote, and maintain security training and awareness programs",
+      "To create and distribute security awareness posters",
+      "To personally conduct security training sessions for all employees"
+    ],
+    answer: "B",
+    explanation: "As an information security manager, Mike's primary role would be to establish an effective security training and awareness program, promote it within the organization, and ensure it is maintained effectively to foster a security-conscious culture among employees. This aligns with a proactive approach to reducing security incidents.\n\nMike should take an active role in security training and awareness, rather than delegating all responsibilities to another department. While HR may be involved, Mike's expertise is crucial in establishing effective programs.\n\nAlthough security awareness posters and training sessions are two components of security awareness efforts, Mike's role should be much broader, encompassing the establishment, promotion, and maintenance of comprehensive training and awareness programs."
+  },
+  {
+    question: "Colin would like to implement a security control in his accounting department that is specifically designed to detect cases of fraud that are able to occur despite the presence of other security controls. Which one of the following controls is best suited to meet Colin's need?",
+    choices: ["Separation of duties", "Least privilege", "Dual control", "Mandatory vacations"],
+    answer: "D",
+    explanation: "Mandatory vacations are designed to force individuals to take time away from the office to allow fraudulent activity to come to light in their absence. The other controls listed here (separation of duties, least privilege, and dual control) are all designed to prevent, rather than detect, fraud."
+  },
+  {
+    question: "Which one of the following security policy framework components does not contain mandatory guidance for individuals in the organization?",
+    choices: ["Policy", "Standard", "Procedure", "Guideline"],
+    answer: "D",
+    explanation: "Guidelines are the only element of the security policy framework that is optional. Compliance with policies, standards, and procedures is mandatory."
+  },
+  {
+    question: "Rachel is the Head of Security at WebCraft Inc. She wants to create both security training and awareness programs. Which statement best captures the difference between these programs?",
+    choices: [
+      "Security training requires time to learn new material, whereas awareness efforts use techniques like posters and emails to remind employees of security lessons.",
+      "Security training involves giving rewards to employees, whereas awareness efforts involve punishments.",
+      "There is no difference; both terms can be used interchangeably.",
+      "Security training is for security team members only, whereas security awareness is for all employees."
+    ],
+    answer: "A",
+    explanation: "Security training typically involves structured and formal programs where employees learn new security concepts and practices. In contrast, security awareness efforts are more informal and aim to keep security principles top-of-mind for employees through reminders, without requiring them to engage in formal learning.\n\nThe idea that security training involves giving rewards to employees and awareness efforts involve punishments is not accurate. Security training is meant to educate employees on security concepts and practices, not to serve as a platform for rewards. Similarly, awareness efforts are not punitive; they serve to remind and reinforce security principles among employees.\n\nThe statement that there is no difference between security training and awareness efforts and that both terms can be used interchangeably is also incorrect. There is a distinct difference between the two in terms of their structure and purpose, as explained in the correct answer.\n\nLastly, the notion that security training is only for security team members while security awareness is for all employees is not true. Security training is important for all employees, depending on their roles and responsibilities, to ensure they understand the security protocols and policies. Security awareness, on the other hand, is a continual reminder for all employees, including the security team, to stay vigilant and informed about security practices."
+  },
+  {
+    question: "Allan is developing a document that lists the acceptable mechanisms for securely obtaining remote administrative access to servers in his organization. What type of document is Allan writing?",
+    choices: ["Policy", "Standard", "Guideline", "Procedure"],
+    answer: "B",
+    explanation: "Standards describe specific security controls that must be in place for an organization. Allan would not include acceptable mechanisms in a high-level policy document, and this information is too general to be useful as a procedure. Guidelines are not mandatory, so they would not be applicable in this scenario."
+  },
+  {
+    question: "Which one of the following is not a common use of the NIST Cybersecurity Framework?",
+    choices: [
+      "Describe the current cybersecurity posture of an organization.",
+      "Describe the target future cybersecurity posture of an organization.",
+      "Communicate with stakeholders about cybersecurity risk.",
+      "Create specific technology requirements for an organization."
+    ],
+    answer: "D",
+    explanation: "The NIST Cybersecurity Framework is designed to help organizations describe their current cybersecurity posture, describe their target state for cybersecurity, identify and prioritize opportunities for improvement, assess progress, and communicate with stakeholders about risk. It does not create specific technology requirements."
+  },
+  {
+    question: "Which one of the following items is not normally included in a request for an exception to security policy?",
+    choices: [
+      "Description of a compensating control",
+      "Description of the risks associated with the exception",
+      "Proposed revision to the security policy",
+      "Business justification for the exception"
+    ],
+    answer: "C",
+    explanation: "Requests for an exception to a security policy would not normally include a proposed revision to the policy. Exceptions are documented variances from the policy because of specific technical and/or business requirements. They do not alter the original policy, which remains in force for systems not covered by the exception."
+  },
+  
+  // Chapter 17: Risk Management and Privacy
+{
+    question: "Jen identified a missing patch on a Windows server that might allow an attacker to gain remote control of the system. After consulting with her manager, she applied the patch. From a risk management perspective, what has she done?",
+    choices: [
+      "Removed the threat",
+      "Reduced the threat",
+      "Removed the vulnerability",
+      "Reduced the vulnerability"
+    ],
+    answer: "C",
+    explanation: "By applying the patch, Jen has removed the vulnerability from her server. This also has the effect of eliminating this particular risk. Jen cannot control the external threat of an attacker attempting to gain access to her server.",
+  },
+  
+  {
+    question: "You notice a high number of SQL injection attacks against a web application run by your organization, so you install a web application firewall to block many of these attacks before they reach the server. How have you altered the severity of this risk?",
+    choices: [
+      "Reduced the magnitude",
+      "Eliminated the vulnerability",
+      "Reduced the probability",
+      "Eliminated the threat"
+    ],
+    answer: "C",
+    explanation: "Installing a web application firewall reduces the probability that an attack will reach the web server. Vulnerabilities may still exist in the web application and the threat of an external attack is unchanged. The impact of a successful SQL injection attack is also unchanged by a web application firewall.",
+  },
+  
+  {
+    question: "Aziz is responsible for the administration of an e-commerce website that generates $100,000 per day in revenue for his firm. The website uses a database that contains sensitive information about the firm’s customers. He expects that a compromise of that database would result in $500,000 of fines against his firm. Aziz is assessing the risk of a SQL injection attack against the database where the attacker would steal all of the customer personally identifiable information (PII) from the database. After consulting threat intelligence, he believes that there is a 5 percent chance of a successful attack in any given year. What is the asset value (AV)?",
+    choices: [
+      "$5,000",
+      "$100,000",
+      "$500,000",
+      "$600,000"
+    ],
+    answer: "C",
+    explanation: "The asset at risk in this case is the customer database. Losing control of the database would result in a $500,000 fine, so the asset value (AV) is $500,000.",
+  },
+  
+  {
+    question: "What is the exposure factor (EF)?",
+    choices: [
+      "5%",
+      "20%",
+      "50%",
+      "100%"
+    ],
+    answer: "D",
+    explanation: "The attack would result in the total loss of customer data stored in the database, making the exposure factor (EF) 100 percent.",
+  },
+  
+  {
+    question: "What is the single loss expectancy (SLE)?",
+    choices: [
+      "$5,000",
+      "$100,000",
+      "$500,000",
+      "$600,000"
+    ],
+    answer: "C",
+    explanation: "We compute the single loss expectancy (SLE) by multiplying the asset value (AV) ($500,000) and the exposure factor (EF) (100%) to get an SLE of $500,000.",
+  },
+  
+  {
+    question: "What is the annualized rate of occurrence (ARO)?",
+    choices: [
+      "0.05",
+      "0.20",
+      "2.00",
+      "5.00"
+    ],
+    answer: "A",
+    explanation: "Aziz's threat intelligence research determined that the threat has a 5 percent likelihood of occurrence each year. This is an ARO of 0.05.",
+  },
+  
+  {
+    question: "What is the annualized loss expectancy (ALE)?",
+    choices: [
+      "$5,000",
+      "$25,000",
+      "$100,000",
+      "$500,000"
+    ],
+    answer: "B",
+    explanation: "We compute the annualized loss expectancy (ALE) by multiplying the SLE ($500,000) and the ARO (0.05) to get an ALE of $25,000.",
+  },
+  {
+    question: "Grace recently completed a risk assessment of her organization’s exposure to data breaches and determined that there is a high level of risk related to the loss of sensitive personal information. She is considering a variety of approaches to managing this risk. Grace's first idea is to add a web application firewall to protect her organization against SQL injection attacks. What risk management strategy does this approach adopt?",
+    choices: [
+      "Risk acceptance",
+      "Risk avoidance",
+      "Risk mitigation",
+      "Risk transference"
+    ],
+    answer: "C",
+    explanation: "Installing new controls or upgrading existing controls is an effort to reduce the probability or magnitude of a risk. This is an example of a risk mitigation activity.",
+  },
+  
+  {
+    question: "Business leaders are considering dropping the customer activities that collect and store sensitive personal information. What risk management strategy would this approach use?",
+    choices: [
+      "Risk acceptance",
+      "Risk avoidance",
+      "Risk mitigation",
+      "Risk transference"
+    ],
+    answer: "B",
+    explanation: "Changing business processes or activities to eliminate a risk is an example of risk avoidance.",
+  },
+  
+  {
+    question: "Grace's company decided to install the web application firewall and continue doing business. They are still worried about other risks to the information that were not addressed by the firewall and are considering purchasing an insurance policy to cover those risks. What strategy does this use?",
+    choices: [
+      "Risk acceptance",
+      "Risk avoidance",
+      "Risk mitigation",
+      "Risk transference"
+    ],
+    answer: "D",
+    explanation: "Insurance policies use a risk transference strategy by shifting some or all of the financial risk from the organization to an insurance company.",
+  },
+  
+  {
+    question: "In the end, Grace's risk managers found that the insurance policy was too expensive and opted not to purchase it. They are taking no additional action. What risk management strategy is being used in this situation?",
+    choices: [
+      "Risk acceptance",
+      "Risk avoidance",
+      "Risk mitigation",
+      "Risk transference"
+    ],
+    answer: "A",
+    explanation: "When an organization decides to take no further action to address remaining risk, they are choosing a strategy of risk acceptance.",
+  },
+  
+  {
+    question: "Under the European Union's GDPR, what term is assigned to the individual who leads an organization's privacy efforts?",
+    choices: [
+      "Data protection officer",
+      "Data controller",
+      "Data steward",
+      "Data processor"
+    ],
+    answer: "A",
+    explanation: "Under the GDPR, the data protection officer (DPO) is an individual assigned direct responsibility for carrying out an organization's privacy program.",
+  },
+  
+  {
+    question: "Helen's organization maintains medical records on behalf of its customers, who are individual physicians. What term best describes the role of Helen's organization?",
+    choices: [
+      "Data processor",
+      "Data controller",
+      "Data owner",
+      "Data steward"
+    ],
+    answer: "A",
+    explanation: "In this case, the physicians maintain the data ownership role. They have chosen to outsource data processing to Helen's organization, making that organization a data processor.",
+  },
+  
+  {
+    question: "Gene recently conducted an assessment and determined that his organization can be without its main transaction database for a maximum of two hours before unacceptable damage occurs to the business. What metric has Gene identified?",
+    choices: [
+      "MTBF",
+      "MTTR",
+      "RTO",
+      "RPO"
+    ],
+    answer: "C",
+    explanation: "The Recovery Time Objective (RTO) is the amount of time that the organization can tolerate a system being down before it is repaired. That is the metric that Gene has identified in this scenario.",
+  },
+  
+  {
+    question: "Tina works for a hospital system and manages the system's patient records. What category of personal information best describes the information that is likely to be found in those records?",
+    choices: [
+      "PCI",
+      "PHI",
+      "PFI",
+      "PII"
+    ],
+    answer: "B",
+    explanation: "This is a tricky question, as it is possible that all of these categories of information may be found in patient records. However, they are most likely to contain protected health information (PHI). PHI could also be described as a subcategory of personally identifiable information (PII), but PHI is a better description. It is also possible that the records might contain payment card information (PCI) or personal financial information (PFI), but that is less likely than PHI.",
+  },
+  
+  {
+    question: "Asa believes that her organization is taking data collected from customers for technical support and using it for marketing without their permission. What principle is most likely being violated?",
+    choices: [
+      "Data minimization",
+      "Data retention",
+      "Purpose limitation",
+      "Data sovereignty"
+    ],
+    answer: "C",
+    explanation: "Organizations should only use data for the purposes disclosed during the collection of that data. In this case, the organization collected data for technical support purposes and is now using it for marketing purposes. That violates the principle of purpose limitation.",
+  },
+  
+  {
+    question: "Which one of the following U.S. government classification levels requires the highest degree of security control?",
+    choices: [
+      "Secret",
+      "Confidential",
+      "Top Secret",
+      "Unclassified"
+    ],
+    answer: "C",
+    explanation: "Top Secret is the highest level of classification under the U.S. system and, therefore, requires the highest level of security control.",
+  },
+  
+  {
+    question: "Which type of analysis uses numeric data in the analysis, resulting in assessments that allow the very straightforward prioritization of risk?",
+    choices: [
+      "Qualitative",
+      "One-time",
+      "Recurring",
+      "Quantitative"
+    ],
+    answer: "D",
+    explanation: "Quantitative risk analysis uses numeric data in the analysis, resulting in assessments that allow the very straightforward prioritization of risks. Qualitative risk analysis substitutes subjective judgments and categories for strict numerical analysis, allowing the assessment of risks that are difficult to quantify. A one-time risk assessment offers the organization a point-in-time view of its current risk state. Recurring risk assessments are performed at regular intervals, such as annually or quarterly.",
+  },
+  
+  {
+    question: "What term is given to an individual or organization who determines the reasons for processing personal information?",
+    choices: [
+      "Data steward",
+      "Data controller",
+      "Data processor",
+      "Data custodian"
+    ],
+    answer: "B",
+    explanation: "Data controllers are the entities who determine the reasons for processing personal information and direct the methods of processing that data. This term is used primarily in European law, and it serves as a substitute for the term data owner to avoid a presumption that anyone who collects data has an ownership interest in that data.",
+  },
+  
+  {
+    question: "Brian recently conducted a risk mitigation exercise and has determined the level of risk that remains after implementing a series of controls. What term best describes this risk?",
+    choices: [
+      "Inherent risk",
+      "Control risk",
+      "Risk appetite",
+      "Residual risk"
+    ],
+    answer: "D",
+    explanation: "The residual risk is the risk that remains after an organization implements controls designed to mitigate, avoid, and/or transfer the inherent risk.",
+  },   
+   
   ];  
