@@ -20,5 +20,5 @@ This is a React-based interactive quiz application that simulates the CompTIA Se
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/yourusername/comptia-security.git
+   git clone https://github.com/donlopez/comptia-security.git
    cd comptia-security

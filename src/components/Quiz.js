@@ -98,6 +98,22 @@ const Quiz = () => {
       <h1>🛡️ CompTIA Security+ Practice Test</h1>
       <h2>Question {current + 1} of {sampleSize}</h2>
       <h3>{question.question}</h3>
+
+      {question.image && (
+        <div style={{ margin: "10px 0" }}>
+          <img
+            src={question.image}
+            alt="Question visual aid"
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              borderRadius: "6px",
+              boxShadow: "0 0 8px rgba(0,0,0,0.1)"
+            }}
+          />
+        </div>
+      )}
+
       <div className="quiz-options">
         {question.choices.map((choice, index) => {
           let className = "quiz-button";
@@ -122,6 +138,9 @@ const Quiz = () => {
           {selected === correctIndex
             ? "✅ Correct!"
             : `❌ Incorrect. Correct answer: ${question.choices[correctIndex]}`}
+          <p style={{ marginTop: "10px", fontSize: "16px", color: "#444" }}>
+            {question.explanation}
+          </p>
         </div>
       )}
       {showAnswer && (
