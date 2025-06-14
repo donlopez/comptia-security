@@ -23,9 +23,9 @@ This is a React-based interactive quiz application that simulates the CompTIA Se
    git clone https://github.com/donlopez/comptia-security.git
    cd comptia-security
    
-# 📁 Directory Structure
+## 📁 Directory Structure
 
-.
+```bash
 ├── certification_test.py           # Python script for CLI-based quiz (non-React)
 ├── public
 │   ├── index.html
