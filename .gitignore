@@ -42,3 +42,4 @@ webpack-stats.json
 # Optional: ignore compiled Python files (if mixed with backend)
 __pycache__/
 *.pyc
+src/data/all_questions.js
