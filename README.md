@@ -22,3 +22,34 @@ This is a React-based interactive quiz application that simulates the CompTIA Se
    ```bash
    git clone https://github.com/donlopez/comptia-security.git
    cd comptia-security
+   
+# 📁 Directory Structure
+
+.
+├── certification_test.py           # Python script for CLI-based quiz (non-React)
+├── public
+│   ├── index.html
+│   └── images
+│       ├── credit-card-mask.png
+│       ├── incident-response-cycle.png
+│       ├── ms17-010-vulnerability.png
+│       └── vestibule.png
+├── src
+│   ├── App.js                      # Root React component
+│   ├── index.js                   # Entry point for React DOM rendering
+│   ├── components
+│   │   └── Quiz.js                # Main quiz component
+│   ├── styles
+│   │   └── Quiz.css               # Styles for the quiz
+│   ├── data
+│   │   ├── all_questions.js       # JavaScript question pool
+│   │   └── __pycache__            # Python bytecode cache (ignore)
+│   └── utils
+│       └── quiz_runner.js         # Handles quiz logic (used in Python/JS)
+├── package.json
+├── package-lock.json
+├── webpack.config.js
+├── .babelrc
+├── .gitignore
+└── README.md
+```
